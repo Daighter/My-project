@@ -10,6 +10,7 @@ public class playerMove : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        rb.AddForce(Vector3.up * 10, ForceMode.Impulse);
     }
 
     [SerializeField] float playerSpeed = 5f;
