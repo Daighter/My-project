@@ -10,11 +10,11 @@ public class playerMove : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.AddForce(Vector3.up * 10, ForceMode.Impulse);
     }
 
     [SerializeField] float playerSpeed = 5f;
     Vector3 dir;
+    [SerializeField] float jumpPower = 10;
     // Update is called once per frame
     void Update()
     {
@@ -36,7 +36,7 @@ public class playerMove : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Debug.Log("점프키 눌림");
-                rb.AddForce(Vector3.up * 10, ForceMode.Impulse);
+                rb.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
             }
         }
     }
