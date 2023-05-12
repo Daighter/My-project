@@ -29,6 +29,6 @@ public class TankMove : MonoBehaviour
 
     private void Rotate()
     {
-        transform.Rotate(transform.up, dir.x * rotSpeed * Time.deltaTime);
+        transform.Rotate(Vector3.up, dir.x * rotSpeed * Time.deltaTime);
     }
 }
