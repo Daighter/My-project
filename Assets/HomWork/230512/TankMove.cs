@@ -18,13 +18,13 @@ public class TankMove : MonoBehaviour
 
     private void Move()
     {
-        transform.Translate(dir * moveSpeed * Time.deltaTime, Space.Self);
+        transform.Translate(Vector3.forward * dir.z * moveSpeed * Time.deltaTime, Space.Self);
     }
 
     private void OnMove(InputValue value)
     {
-        dir.x = value.Get<Vector2>().x;
         dir.z = value.Get<Vector2>().y;
+        dir.x = value.Get<Vector2>().x;
     }
 
     private void Rotate()
