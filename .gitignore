@@ -71,3 +71,13 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 /Assets/Imports
+/Assets/Imports.meta
+/Assets/Configs.meta
+/Assets/Scenes/SampleScene.unity
+/Packages/packages-lock.json
+/ProjectSettings/ProjectSettings.asset
+/Packages/manifest.json
+/Assets/Scenes/SampleScene.unity
+/Packages/packages-lock.json
+/ProjectSettings/ProjectSettings.asset
+/Packages/manifest.json
