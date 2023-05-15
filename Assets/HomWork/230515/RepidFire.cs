@@ -5,6 +5,15 @@ using UnityEngine.InputSystem;
 
 public class RepidFire : MonoBehaviour
 {
+    private void Update()
+    {
+        if (IsPress & coolTime)
+        {
+            coolTime = false;
+            StartCoroutine(BulletMakeRoutine());
+        }
+    }
+
     [SerializeField] GameObject bullet;
     [SerializeField] Transform firePosition;
     private void OnFire(InputValue value)
@@ -14,29 +23,20 @@ public class RepidFire : MonoBehaviour
 
     [SerializeField] float repeatTime = 1f;
     private Coroutine BulletRoutine;
-    private bool allowed = false;
+    private bool IsPress = false;
+    private bool coolTime = true;
     IEnumerator BulletMakeRoutine()
     {
-        while (true)
-        {
-            if (!allowed)
-                StopCoroutine(BulletRoutine);
-            else
-                Instantiate(bullet, firePosition.position, transform.rotation);
-            yield return new WaitForSeconds(repeatTime);
-        }
+        Instantiate(bullet, firePosition.position, transform.rotation);
+        yield return new WaitForSeconds(repeatTime);
+        coolTime = true;
     }
 
     private void OnRepidFire(InputValue value)
     {
         if (value.isPressed)
-        {
-            allowed = true;
-            BulletRoutine = StartCoroutine(BulletMakeRoutine());
-        }
+            IsPress = true;
         else
-        {
-            allowed = false;
-        }
+            IsPress = false;
     }
 }
