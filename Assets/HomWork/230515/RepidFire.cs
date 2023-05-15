@@ -14,11 +14,15 @@ public class RepidFire : MonoBehaviour
 
     [SerializeField] float repeatTime = 1f;
     private Coroutine BulletRoutine;
+    private bool allowed = false;
     IEnumerator BulletMakeRoutine()
     {
         while (true)
         {
-            Instantiate(bullet, firePosition.position, transform.rotation);
+            if (!allowed)
+                StopCoroutine(BulletRoutine);
+            else
+                Instantiate(bullet, firePosition.position, transform.rotation);
             yield return new WaitForSeconds(repeatTime);
         }
     }
@@ -27,11 +31,12 @@ public class RepidFire : MonoBehaviour
     {
         if (value.isPressed)
         {
+            allowed = true;
             BulletRoutine = StartCoroutine(BulletMakeRoutine());
         }
         else
         {
-            StopCoroutine(BulletRoutine);
+            allowed = false;
         }
     }
 }
