@@ -37,6 +37,7 @@ public class TankFireSoundAndEffect : MonoBehaviour
     IEnumerator BulletMakeRoutine()
     {
         Instantiate(bullet, firePosition.position, transform.rotation);
+        audioSource.Play();
         yield return new WaitForSeconds(repeatTime);
         coolTime = true;
     }

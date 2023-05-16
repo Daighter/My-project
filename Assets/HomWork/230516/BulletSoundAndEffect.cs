@@ -24,6 +24,6 @@ public class BulletSoundAndEffect : MonoBehaviour
     {
         Instantiate(ExplosionEffect, transform.position, Quaternion.identity);
         audioSource.Play();
-        Destroy(gameObject);
+        Destroy(gameObject, 0.1f);
     }
 }
