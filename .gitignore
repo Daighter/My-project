@@ -71,6 +71,21 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 /Assets/Imports
+<<<<<<< HEAD
 /Assets/Prefabs
 /Assets/Shell.prefab
 /Assets/Shell.prefab.meta
+=======
+/Assets/Imports.meta
+/Assets/Configs.meta
+/Assets/Scenes/SampleScene.unity
+/Packages/packages-lock.json
+/ProjectSettings/ProjectSettings.asset
+/Packages/manifest.json
+/Assets/Scenes/SampleScene.unity
+/Packages/packages-lock.json
+/ProjectSettings/ProjectSettings.asset
+/Packages/manifest.json
+>>>>>>> 48cabecd00b6a13ac9353fd09e77c3a3be003c6c
+/Assets/Scenes/SampleScene.unity
+/Assets/Scenes/SampleScene.unity
