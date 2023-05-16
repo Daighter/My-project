@@ -13,14 +13,14 @@ public class bulletMove : MonoBehaviour
         prevPosition = transform.position;
     }
 
-    Vector3 dir;
     float time;
+    [SerializeField] float bulletSpeed = 10; 
     // Update is called once per frame
     void Update()
     {
-        // rb.AddForce(Vector3.forward * 1, ForceMode.Impulse);
-        dir = transform.forward;
-        transform.position += dir * 10 * Time.deltaTime;
+        rb.AddForce(transform.forward * bulletSpeed, ForceMode.Impulse);
+        transform.LookAt(transform.position * 2 - prevPosition);
+        prevPosition = transform.position;
 
         time += Time.deltaTime;
         if (time > 3f)

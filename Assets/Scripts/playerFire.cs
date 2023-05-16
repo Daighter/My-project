@@ -4,23 +4,15 @@ using UnityEngine;
 
 public class playerFire : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
-        
-    }
-
-    private bool Reload = true;
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKey(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            if (Reload)
-            {
-                Reload = false;
-                StartCoroutine("KeepFire");
-            }
+            StartCoroutine(KeepFire());
+        }
+        if (Input.GetKeyUp(KeyCode.F))
+        {
+            StopCoroutine(KeepFire());
         }
     }
 
@@ -29,10 +21,7 @@ public class playerFire : MonoBehaviour
     [SerializeField] private float mainDelay = 0.5f;
     IEnumerator KeepFire()
     {
-        GameObject bullet1 = Instantiate(bullet);
-        bullet1.transform.position = firePosition.transform.position;
-        bullet1.transform.rotation = firePosition.transform.rotation;
+        GameObject bullet1 = Instantiate(bullet, firePosition.transform.position, transform.rotation);
         yield return new WaitForSeconds(mainDelay);
-        Reload = true;
     }
 }
