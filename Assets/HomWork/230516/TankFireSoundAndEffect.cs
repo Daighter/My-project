@@ -5,14 +5,13 @@ using UnityEngine.InputSystem;
 
 public class TankFireSoundAndEffect : MonoBehaviour
 {
-    [SerializeField] GameObject player;
     private AudioSource audioSource;
     private Animator animator;
 
     private void Awake()
     {
-        audioSource = player.GetComponent<AudioSource>();
-        animator = GetComponent<Animator>();
+        audioSource = gameObject.GetComponent<AudioSource>();
+        animator = gameObject.GetComponent<Animator>();
     }
 
     private void Update()
