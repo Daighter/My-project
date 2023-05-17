@@ -7,10 +7,12 @@ public class TankFireSoundAndEffect : MonoBehaviour
 {
     [SerializeField] GameObject player;
     private AudioSource audioSource;
+    private Animator animator;
 
     private void Awake()
     {
         audioSource = player.GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -26,8 +28,7 @@ public class TankFireSoundAndEffect : MonoBehaviour
     [SerializeField] Transform firePosition;
     private void OnFire(InputValue value)
     {
-        Instantiate(bullet, firePosition.position, transform.rotation);
-        audioSource.Play();
+        Fire();
     }
 
     [SerializeField] float repeatTime = 0.2f;
@@ -36,9 +37,16 @@ public class TankFireSoundAndEffect : MonoBehaviour
     private bool coolTime = true;
     IEnumerator BulletMakeRoutine()
     {
-        Instantiate(bullet, firePosition.position, transform.rotation);
+        Fire();
         yield return new WaitForSeconds(repeatTime);
         coolTime = true;
+    }
+
+    public void Fire()
+    {
+        Instantiate(bullet, firePosition.position, transform.rotation);
+        audioSource.Play();
+        animator.SetTrigger("Fire");
     }
 
     private void OnRepidFire(InputValue value)

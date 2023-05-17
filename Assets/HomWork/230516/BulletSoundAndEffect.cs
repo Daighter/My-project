@@ -10,7 +10,7 @@ public class BulletSoundAndEffect : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        audioSource = GetComponent<AudioSource>();
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -22,8 +22,8 @@ public class BulletSoundAndEffect : MonoBehaviour
     [SerializeField] private GameObject ExplosionEffect;
     private void OnCollisionEnter(Collision collision)
     {
+        //audioSource.Play();
         Instantiate(ExplosionEffect, transform.position, Quaternion.identity);
-        audioSource.Play();
-        Destroy(gameObject);
+        Destroy(gameObject, 0.1f);
     }
 }
