@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 public class TankFireSoundAndEffect : MonoBehaviour
 {
-    private AudioSource audioSource;
-    private Animator animator;
-
-    private void Awake()
-    {
-        audioSource = gameObject.GetComponent<AudioSource>();
-        animator = gameObject.GetComponent<Animator>();
-    }
+    public UnityEvent OnFired;
 
     private void Update()
     {
@@ -31,7 +25,6 @@ public class TankFireSoundAndEffect : MonoBehaviour
     }
 
     [SerializeField] float repeatTime = 0.2f;
-    private Coroutine BulletRoutine;
     private bool IsPress = false;
     private bool coolTime = true;
     IEnumerator BulletMakeRoutine()
@@ -44,8 +37,9 @@ public class TankFireSoundAndEffect : MonoBehaviour
     public void Fire()
     {
         Instantiate(bullet, firePosition.position, transform.rotation);
-        audioSource.Play();
-        animator.SetTrigger("Fire");
+
+        GameManager.Data.AddShootCount(1);
+        OnFired?.Invoke();
     }
 
     private void OnRepidFire(InputValue value)

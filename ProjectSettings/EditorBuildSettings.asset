@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/HomWork/230517/MainMenuScene.unity
-    guid: 58d41652f4c40954d8066f3deed2f4ff
-  - enabled: 1
     path: Assets/HomWork/230517/SampleScene.unity
     guid: 6a021f38d92cccc49a9f4422363242d8
+  - enabled: 1
+    path: Assets/HomWork/230517/MainMenuScene.unity
+    guid: 58d41652f4c40954d8066f3deed2f4ff
   m_configObjects: {}
