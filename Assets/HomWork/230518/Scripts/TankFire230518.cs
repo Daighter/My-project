@@ -22,6 +22,7 @@ public class TankFire230518 : MonoBehaviour
     public void FIre()
     {
         Instantiate(bulletPrefab, firePosition.position, transform.rotation);
+        GameManager.Data.AddShootCount(1);
         OnFired?.Invoke();
     }
 
