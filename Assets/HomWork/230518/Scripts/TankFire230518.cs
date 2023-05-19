@@ -21,7 +21,7 @@ public class TankFire230518 : MonoBehaviour
 
     public void FIre()
     {
-        Instantiate(bulletPrefab, firePosition.position, Quaternion.identity);
+        Instantiate(bulletPrefab, firePosition.position, transform.rotation);
         OnFired?.Invoke();
     }
 
